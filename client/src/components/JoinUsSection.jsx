@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function JoinUsSection() {
   return (
@@ -31,16 +32,16 @@ export default function JoinUsSection() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 mb-20 relative z-20 w-full sm:w-auto">
           {/* Register Button */}
-          <a href="#register" className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(168,85,247,0.4)] active:scale-95 text-base md:text-lg">
+          <Link to="/register" className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(168,85,247,0.4)] active:scale-95 text-base md:text-lg">
             Register Now 
             <ArrowRight size={20} className="stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          </Link>
           
           {/* Learn More Button */}
-          <a href="#about" className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-700 dark:text-slate-300 font-bold rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-95 text-base md:text-lg">
+          <Link to="/about" className="group w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-700 dark:text-slate-300 font-bold rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg active:scale-95 text-base md:text-lg">
             Learn More 
             <ArrowRight size={20} className="stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400" />
-          </a>
+          </Link>
         </div>
 
         {/* Bottom Metrics/Stats */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, BookOpen, FileText, Award, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import acadImg from '../assets/acad image 1.jpeg';
 
 export default function AboutSection() {
@@ -77,9 +78,9 @@ export default function AboutSection() {
             </div>
 
             {/* CTA Button */}
-            <button className="flex items-center gap-2 px-8 py-3.5 bg-purple-500 hover:bg-purple-500 text-white font-bold rounded-lg transition-transform duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-purple-400/20 text-sm md:text-base">
+            <Link to="/about" className="flex items-center gap-2 px-8 py-3.5 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-lg transition-transform duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-purple-400/20 text-sm md:text-base inline-flex">
               Learn More <ArrowRight size={18} className="stroke-[2.5]" />
-            </button>
+            </Link>
           </div>
 
         </div>
