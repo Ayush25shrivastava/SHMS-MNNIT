@@ -152,6 +152,8 @@ import React, { useState, useEffect } from 'react';
 import { Sun, Moon, X, Menu } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import mnnitLogo from '../assets/mnnit logo.png';
+import confLogo from '../assets/logo.jpeg';
+import ishmsLogo from '../assets/ishms-logo.png';
 
 export default function Navbar({ toggleTheme, isDark }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -182,10 +184,10 @@ export default function Navbar({ toggleTheme, isDark }) {
 
   const navLinksList = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/' },
-    { name: 'Call for Paper', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Call for Paper', href: '/call-for-paper' },
     { name: 'Committee', href: '/committee' },
-    { name: 'Past Events', href: '/' }
+    { name: 'Schedule', href: '/schedule' }
   ];
 
   return (
@@ -196,7 +198,9 @@ export default function Navbar({ toggleTheme, isDark }) {
         
         {/* Left Side */}
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden"></div>
+          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+            <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
+          </div>
           
           <div className="flex flex-col ml-1">
             <h1 className="text-xl md:text-2xl font-bold tracking-tight text-white leading-tight font-serif drop-shadow-sm">
@@ -219,14 +223,18 @@ export default function Navbar({ toggleTheme, isDark }) {
             </Link>
           ))}
 
-          <button className="bg-gradient-to-r from-purple-500 to-red-500 text-white text-sm px-6 py-2.5 rounded-full font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all transform hover:scale-105 ml-4">
+          <Link 
+            to="/register"
+            onClick={() => handleLinkClick('/register')}
+            className="flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-700 text-white text-sm px-6 py-2.5 rounded-full font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all transform hover:scale-105 ml-4"
+          >
             Registration
-          </button>
+          </Link>
 
           <Link
-            to="/"
-            onClick={() => handleLinkClick('/')}
-            className={`${getDesktopClass('/')} ml-4`}
+            to="/contact"
+            onClick={() => handleLinkClick('/contact')}
+            className={`${getDesktopClass('/contact')} ml-4`}
           >
             Contact
           </Link>
@@ -241,7 +249,9 @@ export default function Navbar({ toggleTheme, isDark }) {
 
       {/* Mobile Top */}
       <div className="md:hidden flex justify-between items-center px-4 py-3">
-        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner"></div>
+        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+          <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
+        </div>
 
         <div className="flex items-center gap-4">
           <button onClick={toggleTheme} className="text-white hover:text-purple-400">
@@ -274,17 +284,21 @@ export default function Navbar({ toggleTheme, isDark }) {
             ))}
 
             <Link
-              to="/"
-              onClick={() => handleLinkClick('/')}
-              className={getMobileClass('/', true)}
+              to="/contact"
+              onClick={() => handleLinkClick('/contact')}
+              className={getMobileClass('/contact', true)}
             >
               Contact
             </Link>
 
             <div className="px-6 pt-2">
-              <button className="w-full bg-gradient-to-r from-purple-500 to-red-500 text-white py-3.5 rounded-xl font-bold shadow-lg">
+              <Link 
+                to="/register"
+                onClick={() => handleLinkClick('/register')}
+                className="flex items-center justify-center w-full bg-gradient-to-r from-purple-500 to-purple-700 text-white py-3.5 rounded-xl font-bold shadow-lg transition-transform hover:scale-105"
+              >
                 Register Now
-              </button>
+              </Link>
             </div>
           </div>
         </div>

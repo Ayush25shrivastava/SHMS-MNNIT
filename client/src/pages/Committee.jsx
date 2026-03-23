@@ -1,6 +1,7 @@
 
 
 import React, { useState } from 'react';
+import { Mail } from 'lucide-react';
 import rsv from '../assets/committee/rsv.jpg';
 import sk from '../assets/committee/sk.jpg';
 import vs from '../assets/committee/vs.jpg';
@@ -18,6 +19,7 @@ import rcv from '../assets/committee/rcv.jpg';
 import rdg from '../assets/committee/rdg.jpg';
 import rms from '../assets/committee/rms.jpg';
 import rps from '../assets/committee/rps.jpg';
+import rs from '../assets/committee/rs.jpg';
 
 import pk from '../assets/committee/pk.jpg';
 import pkg from '../assets/committee/pkg.jpg';
@@ -40,6 +42,9 @@ import sbs from '../assets/committee/sbs.webp';
 import aksa from '../assets/committee/aksa.jpg';
 import am from '../assets/committee/am.jpg';
 import dk from '../assets/committee/dk.jpg';
+import as_ts from '../assets/committee/technical support/ayush shrivastava.jpeg';
+import ds_ts from '../assets/committee/technical support/divyansh singh.jpeg';
+import pg_ts from '../assets/committee/technical support/paramita.jpeg';
 
 
 const committeeData = [
@@ -61,7 +66,7 @@ const committeeData = [
     roleLabel: "Organizing Secretaries",
     layout: "grid",
     members: [
-      { name: "Prof. Rama Shanker",  affiliation: "Organizing Secretary",       address: "Dept. of Civil Engineering, MNNIT Allahabad", photo: rsv, profileUrl: "https://www.mnnit.ac.in/index.php/institute/administration/director" },
+      { name: "Prof. Rama Shanker",  affiliation: "Organizing Secretary",       address: "Dept. of Civil Engineering, MNNIT Allahabad", photo: rs, profileUrl: "https://mnnit.ac.in/profile/ramashanker" },
       { name: "Dr. Varun Singh",     affiliation: "Organizing Secretary",       address: "Dept. of Civil Engineering, MNNIT Allahabad", photo: vs, profileUrl: "https://mnnit.ac.in/profile/varun" },
       { name: "Dr. Snehal K",        affiliation: "Joint Organizing Secretary", address: "Dept. of Civil Engineering, MNNIT Allahabad", photo: sk, profileUrl: "https://mnnit.ac.in/profile/snehalk" },
       { name: "Dr. Bharat Rajan",    affiliation: "Joint Organizing Secretary", address: "Dept. of Civil Engineering, MNNIT Allahabad", photo: br, profileUrl: "https://mnnit.ac.in/profile/bharatrajan" },
@@ -107,7 +112,7 @@ const technicalData = [
       { name: "Dr. K. Lakshmi",              affiliation: "Scientist",           address: "CSIR-Structural Engineering Research Centre (CSIR-SERC), Chennai, India",                        photo: kl, profileUrl: "" },
       { name: "Dr. Satish Dhandole",         affiliation: "Faculty",             address: "School of Mechanical Sciences, IIT Bhubaneswar, Odisha, India",                                  photo: sd, profileUrl: "" },
       { name: "Dr. Kumar Pallav",            affiliation: "Faculty",             address: "Cape Peninsula University of Technology, Cape Town, South Africa",                               photo: kp, profileUrl: "" },
-      { name: "Prof. Rama Shanker",          affiliation: "Professor",           address: "Dept. of Civil Engineering, MNNIT Allahabad, Prayagraj, India",                                  photo: rsv, profileUrl: "" },
+      { name: "Prof. Rama Shanker",          affiliation: "Professor",           address: "Dept. of Civil Engineering, MNNIT Allahabad, Prayagraj, India",                                  photo: rs, profileUrl: "" },
       { name: "Dr. Varun Singh",             affiliation: "Asst. Professor",     address: "Dept. of Civil Engineering, MNNIT Allahabad, Prayagraj, India",                                  photo: vs, profileUrl: "" },
     ],
   },
@@ -129,6 +134,18 @@ const advisoryData = [
       { name: "Prof. A.K. Sachan (Retd.)",    affiliation: "Professor (Retired)", address: "Dept. of Civil Engineering, MNNIT Allahabad",                               photo: aksa, profileUrl: "" },
       { name: "Prof. Alok Madan",             affiliation: "Professor",           address: "Dept. of Civil Engineering, IIT Delhi",                                      photo: am, profileUrl: "" },
       { name: "Er. Dinesh Kumar",             affiliation: "Engineer",            address: "Dept. of Water Resource & Irrigation, Uttar Pradesh",                       photo: dk, profileUrl: "" },
+    ],
+  },
+];
+
+const techSupportData = [
+  {
+    roleLabel: "Technical Support",
+    layout: "grid",
+    members: [
+      { name: "Divyansh Singh", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: ds_ts, profileUrl: "" },
+      { name: "Paramita Ghosh", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: pg_ts, profileUrl: "" },
+      { name: "Ayush Shrivastava", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: as_ts, profileUrl: "" },
     ],
   },
 ];
@@ -312,7 +329,7 @@ function CommitteeSection({ heroBadge, heroTitle, heroSub, groups }) {
             </svg>
             {heroBadge}
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-3 leading-tight">
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-3 leading-tight">
             {heroTitle}
           </h2>
           <p className="text-slate-400 text-base md:text-lg max-w-lg leading-relaxed">
@@ -337,26 +354,54 @@ export default function CommitteePage() {
   return (
     <div
       id="committee"
-      className="bg-[#f0ebe4] dark:bg-slate-900 transition-colors duration-300 pt-16"
+      className="bg-[#f0ebe4] dark:bg-slate-900 transition-colors duration-300 pt-16 min-h-screen flex flex-col"
     >
-      <CommitteeSection
-        heroBadge="Our Team"
-        heroTitle="Organizing Committee"
-        heroSub="Meet the distinguished team behind SHMS-2026"
-        groups={committeeData}
-      />
-      <CommitteeSection
-        heroBadge="Expert Panel"
-        heroTitle="Technical Committee"
-        heroSub="Leading researchers and practitioners shaping the technical programme"
-        groups={technicalData}
-      />
-      <CommitteeSection
-        heroBadge="Advisors"
-        heroTitle="Advisory Committee"
-        heroSub="Eminent advisors guiding the vision of SHMS-2026"
-        groups={advisoryData}
-      />
+      <div className="flex-grow">
+        <CommitteeSection
+          heroBadge="Our Team"
+          heroTitle="Organizing Committee"
+          heroSub="Meet the distinguished team behind SHMS-2026"
+          groups={committeeData}
+        />
+        <CommitteeSection
+          heroBadge="Expert Panel"
+          heroTitle="Technical Committee"
+          heroSub="Leading researchers and practitioners shaping the technical programme"
+          groups={technicalData}
+        />
+        <CommitteeSection
+          heroBadge="Advisors"
+          heroTitle="Advisory Committee"
+          heroSub="Eminent advisors guiding the vision of SHMS-2026"
+          groups={advisoryData}
+        />
+        <CommitteeSection
+          heroBadge="Support Team"
+          heroTitle="Technical Support"
+          heroSub="The talented minds providing technical excellence for SHMS-2026"
+          groups={techSupportData}
+        />
+      </div>
+
+      {/* Contact Section at the Bottom */}
+      <div className="w-full bg-[#e8e2da] dark:bg-slate-950 py-16 md:py-24 border-t border-slate-300/40 dark:border-slate-800">
+        <div className="max-w-xl mx-auto px-4 text-center">
+          <h3 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+            Contact
+          </h3>
+          <p className="text-slate-600 dark:text-slate-400 mb-8 text-[15px] md:text-base font-medium">
+            For any queries, please contact:
+          </p>
+          <a
+            href="mailto:shms2026@mnnit.ac.in"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-purple-300 dark:border-purple-500/40 bg-white/50 dark:bg-slate-900/50 text-purple-600 dark:text-purple-400 font-semibold text-sm md:text-base transition-all duration-300 hover:bg-purple-500 hover:text-white dark:hover:bg-purple-500 hover:border-purple-500 hover:-translate-y-1 hover:shadow-[0_10px_20px_-5px_rgba(168,85,247,0.3)] shadow-sm group"
+          >
+            <Mail className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+            shms2026@mnnit.ac.in
+          </a>
+        </div>
+      </div>
+
     </div>
   );
 }
