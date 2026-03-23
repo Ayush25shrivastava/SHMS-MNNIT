@@ -143,9 +143,9 @@ const techSupportData = [
     roleLabel: "Technical Support",
     layout: "grid",
     members: [
-      { name: "Divyansh Singh", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: ds_ts, profileUrl: "" },
-      { name: "Paramita Ghosh", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: pg_ts, profileUrl: "" },
-      { name: "Ayush Shrivastava", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: as_ts, profileUrl: "" },
+      { name: "Divyansh Singh", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: ds_ts, profileUrl: "https://www.linkedin.com/in/divyansh-singh101/" },
+      { name: "Paramita Ghosh", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: pg_ts, profileUrl: "https://www.linkedin.com/in/paramita-ghosh-9272b936a/" },
+      { name: "Ayush Shrivastava", affiliation: "Technical Support", address: "MNNIT Allahabad", photo: as_ts, profileUrl: "https://www.linkedin.com/in/ayush-shrivastava2505/" },
     ],
   },
 ];
