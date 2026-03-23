@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Zap, Calendar, MapPin, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import heroImg1 from '../assets/hero-section/academic building image.jpg';
 import heroImg2 from '../assets/hero-section/front image.jpeg';
 import heroImg3 from '../assets/hero-section/hostels.png';
@@ -69,16 +70,21 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <button className="px-5 py-2.5 bg-purple-600 text-white hover:bg-purple-700 rounded transition-colors font-bold text-xs md:text-sm tracking-wide shadow-xl hover:scale-105 active:scale-95 transform">
+          <Link to="/register" className="px-5 py-2.5 bg-purple-600 text-white hover:bg-purple-700 rounded transition-all font-bold text-xs md:text-sm tracking-wide shadow-xl hover:scale-105 active:scale-95 transform inline-block">
             Register Now
-          </button>
-          <button className="px-5 py-2.5 bg-black/40 backdrop-blur-sm border border-white text-white hover:bg-white/20 rounded transition-colors font-bold text-xs md:text-sm tracking-wide shadow-xl hover:scale-105 active:scale-95 transform">
+          </Link>
+          <Link to="/about" className="px-5 py-2.5 bg-black/40 backdrop-blur-sm border border-white text-white hover:bg-white/20 rounded transition-all font-bold text-xs md:text-sm tracking-wide shadow-xl hover:scale-105 active:scale-95 transform inline-block">
             Learn More
-          </button>
-          <button className="px-5 py-2.5 bg-black/40 backdrop-blur-sm border border-purple-500 text-purple-400 hover:bg-purple-500/20 rounded transition-colors font-bold text-xs md:text-sm tracking-wide shadow-xl flex items-center gap-2 hover:scale-105 active:scale-95 transform">
+          </Link>
+          <a 
+            href="https://docs.google.com/document/d/1CVUtMExrXQJilKAYBu9fF6C55zXwskpf/edit?usp=sharing&ouid=112142989139608804289&rtpof=true&sd=true" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 bg-black/40 backdrop-blur-sm border border-purple-500 text-purple-400 hover:bg-purple-500/20 rounded transition-all font-bold text-xs md:text-sm tracking-wide shadow-xl flex items-center gap-2 hover:scale-105 active:scale-95 transform"
+          >
             <Download size={16} />
             Download Brochure
-          </button>
+          </a>
         </div>
       </div>
     </div>

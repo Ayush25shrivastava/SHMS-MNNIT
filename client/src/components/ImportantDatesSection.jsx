@@ -3,7 +3,7 @@ import { Calendar, PenTool, MailCheck, FileText, CheckSquare, Printer, Clock, Us
 
 export default function ImportantDatesSection() {
   const dates = [
-    { milestone: 'Abstract Submission Opens', date: 'March 15, 2026', icon: Calendar },
+    { milestone: 'Abstract Submission Opens', date: 'March 25, 2026', icon: Calendar },
     { milestone: 'Abstract Submission Deadline', date: 'June 30, 2026', icon: PenTool },
     { milestone: 'Notification of Abstract Acceptance', date: 'July 31, 2026', icon: MailCheck },
     { milestone: 'Full Paper Submission Deadline', date: 'August 16, 2026', icon: FileText },
