@@ -5,6 +5,8 @@ import heroImg1 from '../assets/hero-section/academic building image.jpg';
 import heroImg2 from '../assets/hero-section/front image.jpeg';
 import heroImg3 from '../assets/hero-section/hostels.png';
 import heroImg4 from '../assets/hero-section/mnnit image.png';
+import mnnitLogo from '../assets/mnnit logo.png';
+import ishmsLogo from '../assets/ishms-logo.png';
 
 const Hero = () => {
   const images = [heroImg1, heroImg2, heroImg3, heroImg4];
@@ -18,7 +20,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative pt-24 pb-12 lg:pt-32 lg:pb-16 overflow-hidden bg-slate-900 h-screen flex items-center">
+    <div className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden bg-slate-900 min-h-screen flex items-center">
       {/* Background Images Slider */}
       {images.map((img, idx) => (
         <img 
@@ -66,10 +68,29 @@ const Hero = () => {
 
         <div className="mb-8 text-white/100 drop-shadow-lg text-xs md:text-sm max-w-xl leading-relaxed font-bold tracking-wide">
           Organized by Department of Civil Engineering,<br />
-          Motilal Nehru National Institute of Technology Allahabad
+          Motilal Nehru National Institute of Technology Allahabad jointly with Indian Structural Health Monitoring Society (ISHMS)
+        </div>
+        <div className="flex flex-wrap items-center gap-6 mt-8">
+          <div className="dark:bg-slate-900/50 border border-gray-300 dark:border-slate-800 rounded-2xl w-40 h-40 md:w-48 md:h-48 flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+            <img 
+              src={mnnitLogo} 
+              alt="MNNIT Logo" 
+              className="h-16 md:h-20 w-auto object-contain"
+            />
+          </div>
+          <div className="dark:bg-slate-900/50 border border-gray-300 dark:border-slate-800 rounded-2xl w-40 h-40 md:w-48 md:h-48 flex flex-col items-center justify-center text-center shadow-lg hover:scale-105 transition-transform p-3">
+            <img 
+              src={ishmsLogo} 
+              alt="ISHMS Logo" 
+              className="h-14 md:h-16 w-auto object-contain"
+            />
+            <span className="mt-2 text-xs md:text-sm font-semibold text-white dark:text-white tracking-wide">
+              Organizing Partner
+            </span>
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 py-10">
           <Link to="/register" className="px-5 py-2.5 bg-purple-600 text-white hover:bg-purple-700 rounded transition-all font-bold text-xs md:text-sm tracking-wide shadow-xl hover:scale-105 active:scale-95 transform inline-block">
             Register Now
           </Link>
