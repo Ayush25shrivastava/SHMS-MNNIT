@@ -33,16 +33,22 @@ export default function IshmsSection() {
           </div>
 
           {/* Right Column: Logo */}
+          {/* Right Column: Logo */}
           <div className="w-full lg:w-2/5 order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="bg-[#f4ece3] dark:bg-slate-900/50 p-8 md:p-12 rounded-3xl shadow-inner border border-gray-300 dark:border-slate-800 hover:shadow-lg transition-shadow duration-300 w-full flex items-center justify-center">
+            <div className="bg-[#f4ece3] dark:bg-slate-900/50 p-8 md:p-12 rounded-3xl shadow-inner border border-gray-300 dark:border-slate-800 hover:shadow-lg transition-shadow duration-300 w-full flex flex-col items-center text-center">
+              
               <img 
                 src={ishmsLogo} 
                 alt="ISHMS Logo" 
-                className="w-full max-w-[280px] h-auto object-contain hover:scale-105 transition-transform duration-500 drop-shadow-md"
+                className="max-w-[280px] w-full h-auto object-contain hover:scale-105 transition-transform duration-500 drop-shadow-md block"
               />
+
+              <span className="mt-4 text-sm md:text-base font-semibold text-slate-700 dark:text-slate-300 tracking-wide block">
+                Organizing Partner
+              </span>
+
             </div>
           </div>
-
         </div>
       </div>
     </section>

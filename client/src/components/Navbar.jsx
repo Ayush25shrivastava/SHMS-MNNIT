@@ -148,6 +148,165 @@
 // }
 
 
+// import React, { useState, useEffect } from 'react';
+// import { Sun, Moon, X, Menu } from 'lucide-react';
+// import { Link, useLocation } from 'react-router-dom';
+// import mnnitLogo from '../assets/mnnit logo.png';
+// import confLogo from '../assets/logo.jpeg';
+// import ishmsLogo from '../assets/ishms-logo.png';
+
+// export default function Navbar({ toggleTheme, isDark }) {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const location = useLocation();
+//   const [activePath, setActivePath] = useState(location.pathname);
+
+//   useEffect(() => {
+//     setActivePath(location.pathname);
+//   }, [location]);
+
+//   const getDesktopClass = (href) => {
+//     return activePath === href
+//       ? "bg-[#8B5CF6] text-white font-semibold text-sm px-4 py-2 rounded shadow-sm"
+//       : "text-white hover:text-purple-400 hover:bg-gray-800 px-4 py-2 rounded text-sm font-medium transition-colors";
+//   };
+
+//   const getMobileClass = (href, isLast = false) => {
+//     const base = "block px-6 py-4 " + (isLast ? "" : "border-b border-gray-800 ");
+//     return activePath === href
+//       ? base + "bg-[#8B5CF6] text-white font-semibold"
+//       : base + "text-white font-medium hover:bg-gray-800 hover:text-purple-400 transition-colors";
+//   };
+
+//   const handleLinkClick = (href) => {
+//     setActivePath(href);
+//     setIsOpen(false);
+//   };
+
+//   const navLinksList = [
+//     { name: 'Home', href: '/' },
+//     { name: 'About', href: '/about' },
+//     { name: 'Call for Paper', href: '/call-for-paper' },
+//     { name: 'Committee', href: '/committee' },
+//     { name: 'Schedule', href: '/schedule' }
+//   ];
+
+//   return (
+//     <nav className="fixed w-full z-50 transition-all duration-300 bg-[#172033] shadow-md border-b border-gray-800/50">
+      
+//       {/* Desktop View */}
+//       <div className="hidden md:flex max-w-screen-2xl mx-auto px-6 py-4 justify-between items-center">
+        
+//         {/* Left Side */}
+//         <div className="flex items-center gap-3">
+//           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+//             <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
+//           </div>
+          
+//           <div className="flex flex-col ml-1">
+//             <h1 className="text-xl md:text-2xl font-bold tracking-tight text-white leading-tight font-serif drop-shadow-sm">
+//               SHMS<sup className="text-purple-500 text-sm mx-1">26</sup>
+//             </h1>
+//             <p className="text-xs md:text-sm text-gray-200 font-medium">MNNIT Allahabad</p>
+//           </div>
+//         </div>
+
+//         {/* Links */}
+//         <div className="flex items-center space-x-2 lg:space-x-3">
+//           {navLinksList.map((link) => (
+//             <Link
+//               key={link.name}
+//               to={link.href}
+//               onClick={() => handleLinkClick(link.href)}
+//               className={getDesktopClass(link.href)}
+//             >
+//               {link.name}
+//             </Link>
+//           ))}
+
+//           <Link 
+//             to="/register"
+//             onClick={() => handleLinkClick('/register')}
+//             className="flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-700 text-white text-sm px-6 py-2.5 rounded-full font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all transform hover:scale-105 ml-4"
+//           >
+//             Registration
+//           </Link>
+
+//           <Link
+//             to="/contact"
+//             onClick={() => handleLinkClick('/contact')}
+//             className={`${getDesktopClass('/contact')} ml-4`}
+//           >
+//             Contact
+//           </Link>
+
+//           <button onClick={toggleTheme} className="text-white hover:text-purple-400 transition-colors ml-2">
+//             {isDark ? <Moon size={20} /> : <Sun size={20} />}
+//           </button>
+
+//           <img src={mnnitLogo} alt="MNNIT Logo" className="w-[60px] h-[60px] object-contain drop-shadow-md" />
+//         </div>
+//       </div>
+
+//       {/* Mobile Top */}
+//       <div className="md:hidden flex justify-between items-center px-4 py-3">
+//         <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+//           <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
+//         </div>
+
+//         <div className="flex items-center gap-4">
+//           <button onClick={toggleTheme} className="text-white hover:text-purple-400">
+//             {isDark ? <Sun size={24} /> : <Moon size={24} />}
+//           </button>
+
+//           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1">
+//             <img src={mnnitLogo} alt="MNNIT Logo" className="w-full h-full object-contain" />
+//           </div>
+
+//           <button onClick={() => setIsOpen(!isOpen)} className="text-gray-300 border border-purple-500 rounded p-1">
+//             {isOpen ? <X size={26} /> : <Menu size={26} />}
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       {isOpen && (
+//         <div className="md:hidden absolute top-full left-0 w-full bg-[#172033] shadow-2xl border-t border-gray-800">
+//           <div className="flex flex-col pb-4">
+//             {navLinksList.map((link) => (
+//               <Link
+//                 key={link.name}
+//                 to={link.href}
+//                 onClick={() => handleLinkClick(link.href)}
+//                 className={getMobileClass(link.href)}
+//               >
+//                 {link.name}
+//               </Link>
+//             ))}
+
+//             <Link
+//               to="/contact"
+//               onClick={() => handleLinkClick('/contact')}
+//               className={getMobileClass('/contact', true)}
+//             >
+//               Contact
+//             </Link>
+
+//             <div className="px-6 pt-2">
+//               <Link 
+//                 to="/register"
+//                 onClick={() => handleLinkClick('/register')}
+//                 className="flex items-center justify-center w-full bg-gradient-to-r from-purple-500 to-purple-700 text-white py-3.5 rounded-xl font-bold shadow-lg transition-transform hover:scale-105"
+//               >
+//                 Register Now
+//               </Link>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </nav>
+//   );
+// }
+
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, X, Menu } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -194,33 +353,40 @@ export default function Navbar({ toggleTheme, isDark }) {
     <nav className="fixed w-full z-50 transition-all duration-300 bg-[#172033] shadow-md border-b border-gray-800/50">
       
       {/* Desktop View */}
-      <div className="hidden md:flex max-w-screen-2xl mx-auto px-4 py-2 justify-around items-center">
+      <div className="hidden md:flex max-w-screen-2xl mx-auto px-6 py-4 justify-between items-center">
         
-        {/* Left Side */}
-        <div className="flex items-center gap-3">
+        {/* LEFT: MNNIT + Conf */}
+        <div className="flex items-center gap-4">
+          <img src={mnnitLogo} alt="MNNIT Logo" className="w-[65px] h-[65px] object-contain" />
+
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
             <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
           </div>
           
           <div className="flex flex-col ml-1">
-            <h1 className="text-xl md:text-2xl font-bold tracking-tight text-white leading-tight font-serif drop-shadow-sm">
+            <h1 className="text-xl md:text-2xl font-bold tracking-tight text-white leading-tight font-serif">
               SHMS<sup className="text-purple-500 text-sm mx-1">26</sup>
             </h1>
             <p className="text-xs md:text-sm text-gray-200 font-medium">MNNIT Allahabad</p>
           </div>
         </div>
 
-        {/* Links */}
-        <div className="flex items-center space-x-2 lg:space-x-3">
-          {navLinksList.map((link) => (
-            <Link
-              key={link.name}
-              to={link.href}
-              onClick={() => handleLinkClick(link.href)}
-              className={getDesktopClass(link.href)}
-            >
-              {link.name}
-            </Link>
+        {/* CENTER: Nav Links + SHMS logo */}
+        <div className="flex items-center space-x-3">
+          {navLinksList.map((link, index) => (
+            <React.Fragment key={link.name}>
+              <Link
+                to={link.href}
+                onClick={() => handleLinkClick(link.href)}
+                className={getDesktopClass(link.href)}
+              >
+                {link.name}
+              </Link>
+
+              {index === 0 && (
+                <span className="mx-2"></span>
+              )}
+            </React.Fragment>
           ))}
 
           <Link 
@@ -238,29 +404,37 @@ export default function Navbar({ toggleTheme, isDark }) {
           >
             Contact
           </Link>
+        </div>
 
-          <button onClick={toggleTheme} className="text-white hover:text-purple-400 transition-colors ml-2">
+        {/* RIGHT: Theme + ISHMS */}
+        <div className="flex items-center gap-3">
+          <button onClick={toggleTheme} className="text-white hover:text-purple-400 transition-colors">
             {isDark ? <Moon size={20} /> : <Sun size={20} />}
           </button>
 
-          <img src={mnnitLogo} alt="MNNIT Logo" className="w-[60px] h-[60px] object-contain drop-shadow-md" />
+          <img src={ishmsLogo} alt="ISHMS Logo" className="w-[65px] h-[65px] object-contain" />
         </div>
       </div>
 
       {/* Mobile Top */}
-      <div className="md:hidden flex justify-between items-center px-4 py-3">
-        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
-          <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
+      <div className="md:hidden flex justify-between items-center px-4 py-4">
+        
+        {/* LEFT */}
+        <div className="flex items-center gap-2">
+          <img src={mnnitLogo} alt="MNNIT Logo" className="w-10 h-10 object-contain" />
+
+          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
+            <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
+          </div>
         </div>
 
-        <div className="flex items-center gap-4">
-          <button onClick={toggleTheme} className="text-white hover:text-purple-400">
+        {/* RIGHT */}
+        <div className="flex items-center gap-3">
+          <button onClick={toggleTheme} className="text-white">
             {isDark ? <Sun size={24} /> : <Moon size={24} />}
           </button>
 
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1">
-            <img src={mnnitLogo} alt="MNNIT Logo" className="w-full h-full object-contain" />
-          </div>
+          <img src={ishmsLogo} alt="ISHMS Logo" className="w-10 h-10 object-contain" />
 
           <button onClick={() => setIsOpen(!isOpen)} className="text-gray-300 border border-purple-500 rounded p-1">
             {isOpen ? <X size={26} /> : <Menu size={26} />}
