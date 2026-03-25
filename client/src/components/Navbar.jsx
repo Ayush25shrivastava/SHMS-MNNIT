@@ -353,26 +353,27 @@ export default function Navbar({ toggleTheme, isDark }) {
     <nav className="fixed w-full z-50 transition-all duration-300 bg-[#172033] shadow-md border-b border-gray-800/50">
       
       {/* Desktop View */}
-      <div className="hidden md:flex max-w-screen-2xl mx-auto px-6 py-4 justify-between items-center">
+      <div className="hidden md:flex max-w-screen-2xl mx-auto px-4 py-4 justify-between items-center">
         
         {/* LEFT: MNNIT + Conf */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           <img src={mnnitLogo} alt="MNNIT Logo" className="w-[65px] h-[65px] object-contain" />
 
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
-            <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
-          </div>
-          
           <div className="flex flex-col ml-1">
             <h1 className="text-xl md:text-2xl font-bold tracking-tight text-white leading-tight font-serif">
               SHMS<sup className="text-purple-500 text-sm mx-1">26</sup>
             </h1>
             <p className="text-xs md:text-sm text-gray-200 font-medium">MNNIT Allahabad</p>
           </div>
+
+          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+            <img src={confLogo} alt="Conference Logo" className="w-full h-full object-cover" />
+          </div>
+        
         </div>
 
         {/* CENTER: Nav Links + SHMS logo */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-0.5">
           {navLinksList.map((link, index) => (
             <React.Fragment key={link.name}>
               <Link
